@@ -3,7 +3,8 @@
 
 # Base ----------------------------------------
 matplotlib>=3.2.2
-numpy>=1.18.5
+numpy<1.24.0
+# numpy == 1.23.3
 opencv-python>=4.1.1
 Pillow>=7.1.2
 PyYAML>=5.3.1
