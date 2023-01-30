@@ -1,6 +1,4 @@
 import sys
-from logging import info
-
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QMessageBox, QMainWindow
 from train import run
@@ -61,7 +59,7 @@ class setupUI(Ui_MainWindow):
     # 开始训练
     def startTrain_click(self):
         try:
-            self.startTrain.setDisabled(True)
+            self.startTrain.setEnabled(False)
             self.statusBar.showMessage("开始训练")
             if (self.picDirText == "" or self.picDirText is None
                     or self.annoDirText == "" or self.annoDirText is None
