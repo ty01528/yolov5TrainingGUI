@@ -62,6 +62,7 @@ class setupUI(Ui_MainWindow):
     def startTrain_click(self):
         try:
             self.startTrain.setDisabled(True)
+            self.statusBar.showMessage("开始训练")
             if (self.picDirText == "" or self.picDirText is None
                     or self.annoDirText == "" or self.annoDirText is None
                     or self.cocoYamlText == "" or self.cocoYamlText is None):
@@ -75,6 +76,7 @@ class setupUI(Ui_MainWindow):
             print("分割生成训练集与测试集完成！")
 
             # 使用以上生成的数据集生成新的yaml文件
+            self.statusBar.showMessage("生成配置文件")
             print("生成配置文件")
             self.cocoYaml = getYaml(self.cocoYamlText.text())
             self.cocoYaml['train'] = trainPicDir
@@ -82,6 +84,7 @@ class setupUI(Ui_MainWindow):
             setYaml(self.outputDirText.text() + "/train.yaml", self.cocoYaml)
             print("生成配置文件完成！")
 
+            self.statusBar.showMessage("生成训练参数")
             print("生成训练参数")
             # 设置训练参数
             kwargs = {"data": self.outputDirText.text()+"/train.yaml",
@@ -92,14 +95,17 @@ class setupUI(Ui_MainWindow):
                       "project": self.outputDirText.text(),
                       "name": "exp"}
             self.startTrainThread.setKwargs(kwargs)
+
+            self.statusBar.showMessage("正在训练")
             print("正在训练")
             self.startTrainThread.start()
         except Exception as e:
+            self.statusBar.showMessage("训练失败")
             print("训练失败！")
             QMessageBox.question(None, 'Error！', str(e), QMessageBox.Ok, QMessageBox.Cancel)
             return
         finally:
-
+            self.startTrain.setEnabled(True)
             return
 
 
