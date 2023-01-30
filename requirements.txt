@@ -12,7 +12,7 @@ scipy>=1.4.1
 torch>=1.7.0
 torchvision>=0.8.1
 tqdm>=4.64.0
-protobuf<=3.20.1  # https://github.com/ultralytics/yolov5/issues/8012
+protobuf<4.21.13  # https://github.com/ultralytics/yolov5/issues/8012
 
 # Logging -------------------------------------
 tensorboard>=2.4.1
@@ -42,5 +42,5 @@ thop>=0.1.1  # FLOPs computation
 # pycocotools>=2.0  # COCO mAP
 # roboflow
 
-PyQt5~=5.15.4
+PyQt5~=5.15.8
 Flask~=2.2.2
