@@ -42,5 +42,5 @@ thop>=0.1.1  # FLOPs computation
 # pycocotools>=2.0  # COCO mAP
 # roboflow
 
-PyQt5~=5.15.4
+PyQt5~=5.15.8
 Flask~=2.2.2
