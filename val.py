@@ -391,6 +391,6 @@ def main(opt):
             plot_val_study(x=x)  # plot
 
 
-if __name__ == "__main__":
-    opt = parse_opt()
-    main(opt)
+# if __name__ == "__main__":
+#     opt = parse_opt()
+#     main(opt)
