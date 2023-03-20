@@ -25,7 +25,7 @@ def generate_dataset(pic_dir, anno_dir, split_ratio, outputDir):
     if not os.path.exists(val_pic_dir):
         os.makedirs(val_pic_dir)
 
-    pic_list = [f.split('.')[0] for f in os.listdir(pic_dir) if f.endswith('.jpg') or f.endswith('.png')]
+    pic_list = [f.split('.')[0] for f in os.listdir(pic_dir) if f.endswith('.bmp') or f.endswith('.png')]
     anno_list = [f.split('.')[0] for f in os.listdir(anno_dir) if f.endswith('.txt')]
 
     if set(pic_list) != set(anno_list):
@@ -36,11 +36,11 @@ def generate_dataset(pic_dir, anno_dir, split_ratio, outputDir):
     val_set = set(pic_list) - train_set
 
     for f in train_set:
-        shutil.copyfile(os.path.join(pic_dir, f + '.jpg'), os.path.join(train_pic_dir, f + '.jpg'))
+        shutil.copyfile(os.path.join(pic_dir, f + '.bmp'), os.path.join(train_pic_dir, f + '.bmp'))
         shutil.copyfile(os.path.join(anno_dir, f + '.txt'), os.path.join(train_pic_dir, f + '.txt'))
 
     for f in val_set:
-        shutil.copyfile(os.path.join(pic_dir, f + '.jpg'), os.path.join(val_pic_dir, f + '.jpg'))
+        shutil.copyfile(os.path.join(pic_dir, f + '.bmp'), os.path.join(val_pic_dir, f + '.bmp'))
         shutil.copyfile(os.path.join(anno_dir, f + '.txt'), os.path.join(val_pic_dir, f + '.txt'))
 
     return train_pic_dir, val_pic_dir

@@ -91,6 +91,7 @@ class setupUI(Ui_MainWindow):
                       "batch_size": int(self.batchSizeVal.currentText()),
                       "epochs": int(self.epochsVal.text()),
                       "project": self.outputDirText.text(),
+                      "device": "0",
                       "name": "exp"}
             self.startTrainThread.setKwargs(kwargs)
 

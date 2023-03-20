@@ -695,6 +695,11 @@ background-color: rgb(235,235,235)</string>
                   <string>480</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>640</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
